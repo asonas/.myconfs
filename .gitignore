@@ -1,0 +1,4 @@
+.DS_Store
+.emacs.d/auto-save-list/*
+.emacs.d/abbrev_defs
+*~
