@@ -1,0 +1,1 @@
+/Users/fuji_seal/.emacs
