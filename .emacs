@@ -1,3 +1,5 @@
+(setq load-path (cons "~/.emacs.d/" load-path))
+
 ;;; cperl-mode の設定
 ;;; http://d.hatena.ne.jp/gan2/20071019/1192791373
 (defalias 'perl-mode 'cperl-mode)
@@ -99,16 +101,6 @@
 the directory containing file becomes the initial working directory
 and source-file directory for your debugger." t)
 
-;; rails
-(defun try-complete-abbrev (old)
-  (if (expand-abbrev) t nil))
-(setq hippie-expand-try-functions-list
-      '(try-complete-abbrev
-        try-complete-file-name
-        try-expand-dabbrev))
-(setq rails-use-mongrel t)
-(require 'cl)
-(require 'rails)
 
 ;; ruby-block
 (require 'ruby-block)
@@ -117,15 +109,22 @@ and source-file directory for your debugger." t)
 (setq ruby-block-highlight-toggle t)
 
 ;; ECB
-(setq load-path (cons (expand-file-name "~/.emacs.d/ecb-2.40") load-path))
-(load-file "~/elisp/cedet-1.0/common/cedet.el")
-(setq semantic-load-turn-useful-things-on t)
-(require 'ecb)
-(setq ecb-tip-of-the-day nil)
-(setq ecb-windows-width 0.25)
-(defun ecb-toggle ()
-  (interactive)
-  (if ecb-minor-mode
-      (ecb-deactivate)
-    (ecb-activate)))
-(global-set-key [f2] 'ecb-toggle)
+;つかわない
+;(setq load-path (cons (expand-file-name "~/.emacs.d/ecb-2.40") load-path))
+;(load-file "~/elisp/cedet-1.0/common/cedet.el")
+;(setq semantic-load-turn-useful-things-on t)
+;(require 'ecb)
+;(setq ecb-tip-of-the-day nil)
+;(setq ecb-windows-width 0.25)
+;(defun ecb-toggle ()
+;  (interactive)
+;  (if ecb-minor-mode
+;      (ecb-deactivate)
+;    (ecb-activate)))
+;(global-set-key [f2] 'ecb-toggle)
+
+
+#右側の行数
+(require 'linum)
+(global-linum-mode t)      ; デフォルトで linum-mode を有効にする
+(setq linum-format "%5d ") ; 5 桁分の領域を確保して行番号のあとにスペースを入れる
